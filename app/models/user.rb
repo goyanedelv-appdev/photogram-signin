@@ -21,6 +21,8 @@ class User < ApplicationRecord
     }
   )
 
+  has_secure_password # this is doing the magic of transforming passwords into digests
+
   def comments
     return Comment.where({ :author_id => self.id })
   end
